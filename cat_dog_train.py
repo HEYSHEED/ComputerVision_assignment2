@@ -14,7 +14,7 @@ import joblib
 
 IMG_SIZE = 64
 
-# پوشه‌ای که همین فایل cat_dog_train.py داخلش است
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 TRAIN_PATH = os.path.join(BASE_DIR, "Q1", "train")
@@ -52,7 +52,7 @@ y = np.array(label_list)
 print("Train data shape:", X.shape, "Labels shape:", y.shape)
 
 if X.shape[0] == 0:
-    raise RuntimeError("هیچ تصویری در TRAIN_PATH پیدا نشد! ساختار پوشه‌ها و نام‌ها (Q1/train/Cat, Q1/train/Dog) را چک کن.")
+    raise RuntimeError("No images were found in the TRAIN_PATH directory. Please verify the folder structure and make sure the paths (Q1/train/Cat and Q1/train/Dog) are correct.")
 
 # ================== TRAIN / VAL SPLIT ==================
 
@@ -66,7 +66,7 @@ sc = StandardScaler()
 X_train_sc = sc.fit_transform(X_train)
 X_val_sc = sc.transform(X_val)
 
-# ================== فقط KNN و Logistic Regression ==================
+# ==================  KNN و Logistic Regression ==================
 
 models = {
     "LogisticRegression": LogisticRegression(max_iter=1000),
